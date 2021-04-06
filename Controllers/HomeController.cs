@@ -23,6 +23,14 @@ namespace DockerWebAppCICDDemo.Controllers
             return View();
         }
 
+        public IActionResult Articles()
+        {
+            var model = new ArticlesViewModel();
+            model.Articles = new ArticleRepository().GetLatest();
+
+            return View(model);
+        }
+
         public IActionResult Privacy()
         {
             return View();
